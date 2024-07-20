@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Sidebar = ({ isOpen }) => {
   return (
@@ -17,6 +18,8 @@ const Sidebar = ({ isOpen }) => {
 export default Sidebar;
 
 const SidebarContent = () => {
+  const list = useSelector(state => state.todo.taskItems);
+
   return (
     <div className="bg-gray-950 w-full h-screen xl:w-full flex items-center justify-center">
       <div className="bg-gray-400/15 h-3/4 w-full mx-6 flex flex-col items-center justify-center">
@@ -32,7 +35,7 @@ const SidebarContent = () => {
           </h1>
           <p className="border border-b border-gray-600 w-1/3 mx-auto mt-3 xl:mt-6"></p>
           <div className="mt-10 xl:mt-16 font-extrabold text-3xl xl:text-5xl text-red-300">
-            10
+            {list.length}
           </div>
         </div>
       </div>

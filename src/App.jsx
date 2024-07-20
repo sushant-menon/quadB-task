@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import Sidebar from "./components/sidebar";
 import TodoList from "./components/todoList";
+import { Provider } from "react-redux";
+import { store } from "../store";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -12,7 +14,7 @@ function App() {
   };
 
   return (
-    <div>
+    <Provider store={store}>
       <div>
         <Navbar toggleSidebar={toggleSidebar} />
       </div>
@@ -20,7 +22,7 @@ function App() {
         <Sidebar isOpen={isSidebarOpen} />
       </div>
       <TodoList />
-    </div>
+    </Provider>
   );
 }
 
